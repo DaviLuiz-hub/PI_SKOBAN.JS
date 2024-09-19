@@ -2,10 +2,10 @@
 let x = 3;
 let y = 4;
 
-const player = document.querySelector('.player');
+const ElementplayeR = document.querySelector('.player');
 console.log(player);
 
-player.addEventListener("click", function () {
+ElementplayeR.addEventListener("click", function () {
 
   alert("Clicou no jogador");
 
@@ -15,36 +15,46 @@ window.addEventListener("keydown", function (event) {
 
  nextPosition(event.code)
 })
+function Player(posX, posY) {
+  this.x = posX
+  this.y = posY
+  
+  
+}
+
+const player = new Player (3 , 4)
 
 
 function nextPosition(keycode) {
   if (keycode == "ArrowDown") {
-    x += 1
-    y += 0
+    player.x += 1
+    player.y += 0
   }
 
 
 
   if (keycode == "ArrowUp") {
-    x += -1
-    y += 0
+    player.x += -1
+    player.y += 0
   }
 
 
   if (keycode == "ArrowLeft") {
-    x += 0
-    y += -1
+    player.x += 0
+    player.y += -1
   }
 
 
 
   if (keycode == "ArrowRight") {
-    x += 0
-    y += 1
+    player.x += 0
+    player.y += 1
   }
 
-  console.log(x, y)
+  console.log(keycode, player)
 }
+
+
 
 
 
