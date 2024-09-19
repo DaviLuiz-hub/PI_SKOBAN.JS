@@ -3,7 +3,7 @@ let x = 3;
 let y = 4;
 
 const ElementplayeR = document.querySelector('.player');
-console.log(player);
+
 
 ElementplayeR.addEventListener("click", function () {
 
@@ -22,8 +22,10 @@ function Player(posX, posY) {
   
 }
 
-const player = new Player (3 , 4)
+const player = new Player (0 , 0)
 
+const celulas = document.querySelectorAll('.cell');
+console.log(celulas);
 
 function nextPosition(keycode) {
   if (keycode == "ArrowDown") {
@@ -52,7 +54,10 @@ function nextPosition(keycode) {
   }
 
   console.log(keycode, player)
+  const k = player.x * 4 + player.y;
+  celulas[k].append(ElementplayeR);
 }
+
 
 
 
