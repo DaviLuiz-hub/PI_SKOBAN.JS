@@ -10,37 +10,43 @@ player.addEventListener("click", function () {
   alert("Clicou no jogador");
 
 })
-window.addEventListener("keydown", function (event) {
+window.addEventListener("keydown", function (event) { 
 
 
-  // window.alert("pressionou tecla");
+ nextPosition(event.code)
+})
 
-  if (event.code == "ArrowDown") {
+
+function nextPosition(keycode) {
+  if (keycode == "ArrowDown") {
     x += 1
     y += 0
   }
 
 
 
-  if (event.code == "ArrowUp") {
+  if (keycode == "ArrowUp") {
     x += -1
     y += 0
   }
 
 
-  if (event.code == "ArrowLeft") {
+  if (keycode == "ArrowLeft") {
     x += 0
     y += -1
   }
 
 
 
-  if (event.code == "ArrowRight") {
+  if (keycode == "ArrowRight") {
     x += 0
     y += 1
   }
 
   console.log(x, y)
-})
+}
+
+
+
 
 
