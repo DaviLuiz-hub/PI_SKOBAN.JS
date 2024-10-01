@@ -24,8 +24,8 @@ main{
 
 
 
-.tabuleiro{
- 
+.board{
+    position:relative;
     min-width: 256px;
     min-height: 256px;
     border-radius: 10px;
@@ -59,10 +59,22 @@ main{
 
 }
 .player{
-        box-sizing: border-box;
-        height:  52px;
-        width: 52px;
-    
-        background-color: rgb(255, 255, 255);
-        box-shadow: none;
+    position:absolute;
+    box-sizing: border-box;
+    height:  64px;
+    width: 64px;
+
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
 }
+
+
+.vazio {
+
+background-color: unset;
+box-shadow: none;
+
+}
+
+.box { background-color: crimson;}
+.wall { background-color: rgb(87, 61, 61);}
