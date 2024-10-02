@@ -7,37 +7,41 @@ function Piece(posX, posY) {
     this.y = posY
 
     this.nextPosition= function(keycode) {
+        let posX = this.x
+        let posY = this.y
+
         if (keycode == "ArrowDown") {
-            this.x += 1
-            this.y += 0
+            posX+= 0
+            posY += 1
         }
 
 
 
         if (keycode == "ArrowUp") {
-            this.x += -1
-            this.y += 0
+            posX+= 0
+            posY += -1
         }
 
 
         if (keycode == "ArrowLeft") {
-            this.x += 0
-            this.y += -1
+            posX+= -1
+            posY += 0
         }
 
 
 
         if (keycode == "ArrowRight") {
-            this.x += 0
-            this.y += 1
+            posX+= 1
+            posY += 0
         }
 
         console.log(keycode, this)
-        const k = this.x * 4 + this.y;
-       
+        // const k = this.x * 4 + this.y;
+        
+       return {x:posX, y:posY}
     }
 
-    this.moveTo = function (position) {
+    this.moveTo = function (position) {console.log(position)
         this.x = position.x;
         this.y = position.y;
     

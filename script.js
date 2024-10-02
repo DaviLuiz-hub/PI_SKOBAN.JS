@@ -1,5 +1,5 @@
 const pieces = buildGameBoard();
-const playerPiece = createBoardPiece(pieces.player, 'player');
+const player = createBoardPiece(pieces.player, 'player');
 
 
 
@@ -26,7 +26,7 @@ function verifyPosition(position) {
 
 
 window.addEventListener("keydown", function (event) {
-  event.preventDefault();
+  // event.preventDefault();
 
   handlePieceMovement(event.code);
 });
@@ -38,25 +38,32 @@ function findBoxAtPosition(pos){
   return boxes.find((caixa) => caixa.x === pos.x && caixa.y === pos.y);
 }
 
-/** Tarefa #2: modificar a função abaixo de forma a tratar tando a movimentação
-* do jogador quanto das caixas.
-*/
+find
+
 function handlePieceMovement(keycode){
-  // Variável destinada ao pré-cálculo da posição do jogador
+ const nextPlayerPosition = player.nextPosition(keycode);
   const next = player.nextPosition(keycode);
   // (Modificar) Variável para detectar a "presença" de outra peça
-  const foundPice = null;
-
+  const foundPiece = null;
   // Implementar lógica caso encontre uma outra peça no caminho.
-  if(foundPice) {
-
+  if(foundPiece) {
+    
   }
-  // E caso não encontre outra peça...
-  else {
-      // Faça as modificações que forem necessárias para manter o
-      // funcionamento do jogo.
-      if (verifyPosition(next)) {
-          player.moveTo(next);
-      }
+  // E casFo não encontre outra peça...
+  else {  
+    // Faça as modificações que forem necessárias para manter o
+    // funcionamento do jogo.
+    if (verifyPosition(next)) {
+      player.moveTo(next);
+    }
   }
 }
+
+
+
+
+
+
+
+
+  
