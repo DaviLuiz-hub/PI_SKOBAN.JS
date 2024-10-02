@@ -47,12 +47,31 @@ find
 
 function handlePieceMovement(keycode){
  const nextPlayerPosition = player.nextPosition(keycode);
-  const next = player.nextPosition(keycode);
+ const caixa = findBoxAtPosition(nextPlayerPosition);
+
+if(caixa) {
+const nextCaixaPosition = caixa.nextPosition(keycode);
+const outraCaixa = findBoxAtPosition(nextCaixaPosition);
+
+ const caixaCanMove = verifyCollision(nextCaixaPosition);
+
+if(caixaCanMove && !outraCaixa) {
+  caixa.moveTo(nextCaixaPosition);
+  player.moveTo(nextPlayerPosition);
+
+}
+
+}
+
+else {
+  const playerCanMove = verifyCollision(nextPlayerPosition);
+
+  if (playerCanMove) {
+    player.moveTo(nextPlayerPosition);
+  }
 
 
-
-
-
+}
   
   // (Modificar) Variável para detectar a "presença" de outra peça
   const foundPiece = null;
