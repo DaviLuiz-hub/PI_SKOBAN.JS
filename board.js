@@ -22,11 +22,12 @@ function createGameElement(elementName, classlist, parentNode) {
   return element;
 }
 
+
 function buildGameBoard() {
   const pieces = {
     boxes: []
   };
-
+  let numOfGoals = 0;
   const game = document.getElementById("game");
   const board = createGameElement('div', 'board', game);
   console.log(board);
@@ -42,11 +43,18 @@ function buildGameBoard() {
       const position = { x: j, y: i }
 
       if (char === '#') cell.classList.add('wall');
-      if (char === 'G') cell.classList.add('goal');
+
       if (char === 'P') pieces.player = position;
       if (char === 'B') pieces.boxes.push(position);
+      if (char === 'G') {
+        cell.classList.add('goal')
+        numOfGoals++;
+      }
     }
   }
-  return pieces;
+
+  return { pieces, numOfGoals }
 }
+
+
 

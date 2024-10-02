@@ -1,4 +1,7 @@
-const pieces = buildGameBoard();
+
+
+
+const {pieces, numOfGoals} = buildGameBoard();
 const player = createBoardPiece(pieces.player, 'player');
 const boxes = [];
 
@@ -68,7 +71,7 @@ function handlePieceMovement(keycode) {
       const caixascertas =  contagemDeCaixasCorretas()
       console.log(caixascertas);
 
-      if (caixascertas === 3) {
+      if (caixascertas === numOfGoals) {
         setTimeout (levantaplaquinha, 300);
       }
     }
