@@ -58,6 +58,10 @@ function handlePieceMovement(keycode) {
       caixa.moveTo(nextCaixaPosition);
       player.moveTo(nextPlayerPosition);
 
+      const caixascertas =  contagemDeCaixasCorretas()
+      console.log(caixascertas);
+
+      if (caixascertas === 3) window.alert("Congratulation You Win.");
     }
   } else {
     const playerCanMove = verifyPosition(nextPlayerPosition);
@@ -67,3 +71,22 @@ function handlePieceMovement(keycode) {
     }
   }
 }
+
+function contagemDeCaixasCorretas() {
+  let count = 0;
+
+
+
+  for (let CaixasCorretas of boxes) {
+
+    let { x: j, y: i } = CaixasCorretas;
+
+    if (boardMap[i][j] === 'G') count++;
+
+  }
+
+  return count;
+}
+
+
+
