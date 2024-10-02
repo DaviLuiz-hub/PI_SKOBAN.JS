@@ -66,6 +66,10 @@ main{
 
     background-color: rgb(255, 255, 255);
     box-shadow: none;
+
+    transition:
+    left 150ms ease-in-out 50ms,
+    top 150ms ease-in-out 50ms;
 }
 
 

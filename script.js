@@ -43,6 +43,13 @@ function findBoxAtPosition(pos) {
   return boxes.find((caixa) => caixa.x === pos.x && caixa.y === pos.y);
 }
 
+  function levantaplaquinha (){
+
+window.alert("Congratulation You Win.")
+
+  }
+
+
 
 function handlePieceMovement(keycode) {
   const nextPlayerPosition = player.nextPosition(keycode);
@@ -61,8 +68,12 @@ function handlePieceMovement(keycode) {
       const caixascertas =  contagemDeCaixasCorretas()
       console.log(caixascertas);
 
-      if (caixascertas === 3) window.alert("Congratulation You Win.");
+      if (caixascertas === 3) {
+        setTimeout (levantaplaquinha, 300);
+      }
     }
+
+    
   } else {
     const playerCanMove = verifyPosition(nextPlayerPosition);
 
@@ -70,7 +81,9 @@ function handlePieceMovement(keycode) {
       player.moveTo(nextPlayerPosition);
     }
   }
+  
 }
+
 
 function contagemDeCaixasCorretas() {
   let count = 0;
