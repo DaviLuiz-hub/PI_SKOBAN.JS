@@ -1,6 +1,11 @@
 const pieces = buildGameBoard();
 const player = createBoardPiece(pieces.player, 'player');
+const boxes = [];
 
+for (let box of pieces.boxes) {
+    let piece = createBoardPiece(box, 'box');
+    boxes.push(piece);
+}
 
 
 function createBoardPiece(piecePosition, className) {
@@ -43,11 +48,26 @@ find
 function handlePieceMovement(keycode){
  const nextPlayerPosition = player.nextPosition(keycode);
   const next = player.nextPosition(keycode);
+
+
+
+
+
+  
   // (Modificar) Variável para detectar a "presença" de outra peça
   const foundPiece = null;
   // Implementar lógica caso encontre uma outra peça no caminho.
   if(foundPiece) {
-    
+
+    const nextBlockposition1 = foundPiece.nextPosition(keycode);
+    const nextBlockposition2 = foundPiece.nextPosition(keycode);
+
+    if(nextBlockposition1 &&! nextBlockposition2){
+
+    }
+    console.log(nextBlockposition2);
+    console.log(nextBlockposition1);
+
   }
   // E casFo não encontre outra peça...
   else {  

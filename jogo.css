@@ -77,4 +77,19 @@ box-shadow: none;
 }
 
 .box { background-color: crimson;}
+.box{
+    position:absolute;
+    box-sizing: border-box;
+    height:  64px;
+    width: 64px;
+
+    background-color: crimson;
+    box-shadow: none;
+}
+
 .wall { background-color: rgb(87, 61, 61);}
+
+.goal {
+
+    background-color: aqua;
+}
