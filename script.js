@@ -3,8 +3,8 @@ const player = createBoardPiece(pieces.player, 'player');
 const boxes = [];
 
 for (let box of pieces.boxes) {
-    let piece = createBoardPiece(box, 'box');
-    boxes.push(piece);
+  let piece = createBoardPiece(box, 'box');
+  boxes.push(piece);
 }
 
 
@@ -12,7 +12,7 @@ function createBoardPiece(piecePosition, className) {
   const board = document.querySelector('.board');
   const piece = new Piece(piecePosition.x, piecePosition.y);
   piece.insertElementInto(className, board);
-  
+
   return piece;
 }
 
@@ -39,70 +39,31 @@ window.addEventListener("keydown", function (event) {
 /** Tarefa #1: implementar função para localizar uma caixa à partir de um
 * uma dada coordenada.
 */
-function findBoxAtPosition(pos){
+function findBoxAtPosition(pos) {
   return boxes.find((caixa) => caixa.x === pos.x && caixa.y === pos.y);
 }
 
-find
 
-function handlePieceMovement(keycode){
- const nextPlayerPosition = player.nextPosition(keycode);
- const caixa = findBoxAtPosition(nextPlayerPosition);
+function handlePieceMovement(keycode) {
+  const nextPlayerPosition = player.nextPosition(keycode);
+  const caixa = findBoxAtPosition(nextPlayerPosition);
 
-if(caixa) {
-const nextCaixaPosition = caixa.nextPosition(keycode);
-const outraCaixa = findBoxAtPosition(nextCaixaPosition);
+  if (caixa) {
+    const nextCaixaPosition = caixa.nextPosition(keycode);
+    const outraCaixa = findBoxAtPosition(nextCaixaPosition);
 
- const caixaCanMove = verifyCollision(nextCaixaPosition);
+    const caixaCanMove = verifyPosition(nextCaixaPosition);
 
-if(caixaCanMove && !outraCaixa) {
-  caixa.moveTo(nextCaixaPosition);
-  player.moveTo(nextPlayerPosition);
-
-}
-
-}
-
-else {
-  const playerCanMove = verifyCollision(nextPlayerPosition);
-
-  if (playerCanMove) {
-    player.moveTo(nextPlayerPosition);
-  }
-
-
-}
-  
-  // (Modificar) Variável para detectar a "presença" de outra peça
-  const foundPiece = null;
-  // Implementar lógica caso encontre uma outra peça no caminho.
-  if(foundPiece) {
-
-    const nextBlockposition1 = foundPiece.nextPosition(keycode);
-    const nextBlockposition2 = foundPiece.nextPosition(keycode);
-
-    if(nextBlockposition1 &&! nextBlockposition2){
+    if (caixaCanMove && !outraCaixa) {
+      caixa.moveTo(nextCaixaPosition);
+      player.moveTo(nextPlayerPosition);
 
     }
-    console.log(nextBlockposition2);
-    console.log(nextBlockposition1);
+  } else {
+    const playerCanMove = verifyPosition(nextPlayerPosition);
 
-  }
-  // E casFo não encontre outra peça...
-  else {  
-    // Faça as modificações que forem necessárias para manter o
-    // funcionamento do jogo.
-    if (verifyPosition(next)) {
-      player.moveTo(next);
+    if (playerCanMove) {
+      player.moveTo(nextPlayerPosition);
     }
   }
 }
-
-
-
-
-
-
-
-
-  
